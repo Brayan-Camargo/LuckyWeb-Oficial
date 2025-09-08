@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuckyWeb | Soluciones Digitales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <div class="custom-cursor hidden md:block"></div>
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white">Lucky<span class="text-gradient">Web</span></h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Inicio</a>
+                <a href="#servicios" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Servicios</a>
+                <a href="#nosotros" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Nosotros</a>
+                <a href="#portafolio" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Portafolio</a>
+                <a href="#contacto" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Contacto</a>
+            </nav>
+            <button class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div id="particles-js"></div>
+        <div class="hero-content text-center px-4">
+            <h2 class="text-4xl md:text-7xl font-black text-white mb-4 reveal">
+                Creamos soluciones <span class="text-gradient" id="rotating_text"></span>
+            </h2>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 reveal delay-200ms">
+                Transformamos ideas en experiencias web innovadoras que impulsan el crecimiento de tu negocio.
+            </p>
+            <a href="#contacto" class="bg-gradient-to-r from-orange-500 to-rose-600 text-white font-bold py-3 px-8 rounded-lg hover:from-orange-600 hover:to-rose-700 transition-all duration-300 transform hover:scale-105 reveal delay-400ms">
+                Hablemos de tu Proyecto
+            </a>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-20 bg-[#101010]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-white reveal">Nuestros <span class="text-gradient">Servicios</span></h3>
+                <p class="text-gray-400 mt-2 reveal delay-150ms">Acompañamos tu visión con la estrategia y la tecnología precisa para hacerla realidad.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-gray-900 p-8 rounded-xl border border-gray-800 transition-all duration-300 reveal" data-tilt>
+                    <h4 class="text-2xl font-bold text-white mb-3">Diseño Web a Medida</h4>
+                    <p class="text-gray-400">Creamos sitios web únicos, atractivos y funcionales centrados en la experiencia del usuario, asi como su optimización. Siempre buscando lo mejor para ti y tu negocio.</p>
+                </div>
+                <div class="service-card bg-gray-900 p-8 rounded-xl border border-gray-800 transition-all duration-300 reveal delay-150ms" data-tilt>
+                    <h4 class="text-2xl font-bold text-white mb-3">Estrategia Digital</h4>
+                    <p class="text-gray-400">Tu historia merece ser contada y encontrada. Elevamos tu presencia en el mundo digital, conectando tu marca con quienes verdaderamente valoran lo que ofreces.</p>
+                </div>
+                <div class="service-card bg-gray-900 p-8 rounded-xl border border-gray-800 transition-all duration-300 reveal delay-300ms" data-tilt>
+                    <h4 class="text-2xl font-bold text-white mb-3">Boutiques Digitales Exclusivas</h4>
+                    <p class="text-gray-400">Transformamos tu catálogo en una experiencia de compra de lujo. Creamos e-commerce elegantes y funcionales que invitan a la conversión y fidelizan a tus clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-white reveal">Sobre <span class="text-gradient">Nosotros</span></h3>
+                <p class="text-gray-400 mt-2 reveal delay-150ms">Creemos en el poder de las conexiones auténticas.</p>
+            </div>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 reveal">
+                    <img src="./assets/figmaluckyweb.webp" alt="Equipo de LuckyWeb" class="rounded-lg shadow-2xl">
+                </div>
+                <div class="lg:w-1/2">
+                    <p class="text-lg text-gray-300 mb-4 reveal delay-200ms">En LuckyWeb, no solo construimos sitios web; creamos experiencias digitales. Nuestra misión es combinar diseño de vanguardia con funcionalidad impecable para entregar productos que no solo se ven bien, sino que también funcionan a la perfección.</p>
+                    <p class="text-lg text-gray-300 reveal delay-350ms">Creemos en la colaboración estrecha con nuestros clientes para entender su visión y transformarla en una realidad digital que supere sus expectativas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portafolio" class="py-20 bg-[#101010]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-white reveal">Proyectos que cuentan una <span class="text-gradient">Historia</span></h3>
+                <p class="text-gray-400 mt-2 reveal delay-150ms">Cada proyecto es un viaje. Aquí te mostramos algunos de nuestros destinos favoritos.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden reveal" data-tilt>
+                    <img src="./assets/Casa-faro.webp" alt="Proyecto de un hotel cercano a un faro" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white">Casa Faro</h4>
+                        <p class="text-gray-400 mt-2">Casa Faro es un lugar para descansar cerca de un FAro y con la mejor tranquilidad y conexion a la naturaleza.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden reveal delay-150ms" data-tilt>
+                    <img src="./assets/Belealte.webp" alt="Proyecto de renta de mobiliario" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white">Belealte</h4>
+                        <p class="text-gray-400 mt-2">Belealte es una pagina que renta moniliario con un diseño elegante,funcional y de faicl contacto para sus clientes.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden reveal delay-300ms" data-tilt>
+                    <img src="./assets/Moderna-limpia.webp" alt="Proyecto de una página limpia, moderna y elegante" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white">Limpia y Elegante</h4>
+                        <p class="text-gray-400 mt-2">Esta es una web que se encuentra disponible para comprar.COn un diseño limpio, elegante y de facil comprencion para todos tus clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-white reveal">Comencemos el viaje</h3>
+                <p class="text-gray-400 mt-2 reveal delay-150ms">Tu visión es el punto de partida. Nos encantaría escuchar la historia que quieres contar.</p>
+            </div>
+            <form id="contact-form" action="https://formsubmit.co/your@email.com" method="POST" class="space-y-6">
+                <div class="reveal delay-200ms">
+                    <label for="name" class="block text-sm font-medium text-gray-300">Nombre</label>
+                    <input type="text" name="name" id="name" class="mt-1 block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                <div class="reveal delay-250ms">
+                    <label for="number" class="block text-sm font-medium text-gray-300">Telefono</label>
+                    <input type="number" name="number" id="number" class="mt-1 block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                <div class="reveal delay-250ms">
+                    <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+                    <input type="email" name="email" id="email" class="mt-1 block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                <div class="reveal delay-300ms">
+                    <label for="idea" class="block text-sm font-medium text-gray-300">Cuéntanos tu idea en una frase</label>
+                    <input type="text" name="idea" id="idea" placeholder="Ej: Una pagina web para conectar a dueños de mascotas" class="mt-1 block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                </div>
+                
+                <div class="reveal delay-350ms">
+                    <label for="message" class="block text-sm font-medium text-gray-300">Primeras pinceladas del proyecto</label>
+                    <textarea id="message" name="message" rows="10" class="mt-1 block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-orange-500 focus:border-orange-500" placeholder="Borrador del Proyecto (puedes editarlo)..."></textarea>
+                </div>
+                <div class="text-center reveal delay-400ms">
+                    <button type="button" id="generar-presupuesto-btn" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-2">
+                    ✨ Tambien quiero recibir mi presupuesto ✨
+                    </button>
+                </div>
+                <div id="opciones-pdf" class="space-y-4">
+                    <label class="block text-sm font-medium text-gray-300 text-center">¡Perfecto! Ahora elige un plan para recibir tu presupuesto detallado en PDF:</label>
+              
+                    <div class="reveal delay-500ms">
+                        <select class=" block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-orange-500 focus:border-orange-500">
+                            <option value="opcion1">Landing Page Profesional (1 sección)</option>
+                            <option value="opcion2">Sitio Web Profesional (hasta 5 secciones)</option>
+                            <option value="opcion3">Tienda Online Básica (hasta 20 productos)</option>
+                            <option value="opcion4">Tienda Online Avanzada (hasta 50 productos)</option>
+                            <option value="opcion5">Tienda Online Premium (hasta 100 productos)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center reveal delay-600ms">
+                    <button type="submit" class="bg-gradient-to-r from-orange-500 to-rose-600 text-white font-bold py-3 px-12 rounded-lg hover:from-orange-600 hover:to-rose-700 transition-all duration-300 transform hover:scale-105">
+                    Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-900 py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 LuckyWeb. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
