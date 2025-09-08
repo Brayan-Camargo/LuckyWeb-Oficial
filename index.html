@@ -13,20 +13,32 @@
     <div class="custom-cursor hidden md:block"></div>
 
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white">Lucky<span class="text-gradient">Web</span></h1>
-            <nav class="hidden md:flex space-x-8">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-white">Lucky<span class="text-gradient">Web</span></h1>
+        
+        <nav class="hidden md:flex space-x-8" id="desktop-menu">
+            <a href="#inicio" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Inicio</a>
+            <a href="#servicios" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Servicios</a>
+            <a href="#nosotros" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Nosotros</a>
+            <a href="#portafolio" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Portafolio</a>
+            <a href="#contacto" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Contacto</a>
+        </nav>
+        
+        <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+
+        <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-[#0a0a0a] bg-opacity-90 backdrop-blur-md py-4 shadow-lg md:hidden">
+            <nav class="flex flex-col items-center space-y-4">
                 <a href="#inicio" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Inicio</a>
                 <a href="#servicios" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Servicios</a>
                 <a href="#nosotros" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Nosotros</a>
                 <a href="#portafolio" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Portafolio</a>
                 <a href="#contacto" class="text-gray-300 hover:text-orange-400 transition-colors duration-300">Contacto</a>
             </nav>
-            <button class="md:hidden text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
         </div>
-    </header>
+    </div>
+</header>
 
     <section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div id="particles-js"></div>
@@ -92,30 +104,29 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden reveal" data-tilt>
-                    <img src="./assets/Casa-faro.webp" alt="Proyecto de un hotel cercano a un faro" class="w-full h-48 object-cover">
+                    <img src="./assets/Casa-faro.webp" data-image="./assets/Casa-faro.webp" alt="Proyecto de un hotel cercano a un faro" class="portfolio-image w-full h-48 object-cover cursor-pointer">
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white">Casa Faro</h4>
-                        <p class="text-gray-400 mt-2">Casa Faro es un lugar para descansar cerca de un FAro y con la mejor tranquilidad y conexion a la naturaleza.</p>
+                        <p class="text-gray-400 mt-2">Casa Faro es un lugar para descansar cerca de bonito y elegenate faro, con la mejor tranquilidad y conexion a la naturaleza.</p>
                     </div>
                 </div>
                 <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden reveal delay-150ms" data-tilt>
-                    <img src="./assets/Belealte.webp" alt="Proyecto de renta de mobiliario" class="w-full h-48 object-cover">
+                    <img src="./assets/Belealte.webp" data-image="./assets/Belealte.webp" alt="Proyecto de renta de mobiliario" class="portfolio-image w-full h-48 object-cover cursor-pointer">
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white">Belealte</h4>
-                        <p class="text-gray-400 mt-2">Belealte es una pagina que renta moniliario con un diseño elegante,funcional y de faicl contacto para sus clientes.</p>
+                        <p class="text-gray-400 mt-2">Belealte es una pagina que renta moniliario con un diseño elegante, funcional y de facil contacto para sus clientes.</p>
                     </div>
                 </div>
                 <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden reveal delay-300ms" data-tilt>
-                    <img src="./assets/Moderna-limpia.webp" alt="Proyecto de una página limpia, moderna y elegante" class="w-full h-48 object-cover">
+                    <img src="./assets/Moderna-limpia.webp" data-image="./assets/Moderna-limpia.webp" alt="Proyecto de una página limpia, moderna y elegante" class="portfolio-image w-full h-48 object-cover cursor-pointer">
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-white">Limpia y Elegante</h4>
-                        <p class="text-gray-400 mt-2">Esta es una web que se encuentra disponible para comprar.COn un diseño limpio, elegante y de facil comprencion para todos tus clientes.</p>
+                        <p class="text-gray-400 mt-2">Esta es una web que se encuentra disponible para comprar. Con un diseño limpio, elegante y de facil comprencion para todos tus clientes.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="contacto" class="py-20">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-12">
@@ -152,7 +163,7 @@
                 <div id="opciones-pdf" class="space-y-4">
                     <label class="block text-sm font-medium text-gray-300 text-center">¡Perfecto! Ahora elige un plan para recibir tu presupuesto detallado en PDF:</label>
               
-                    <div class="reveal delay-500ms">
+                    <div class="reveal delay-450ms">
                         <select class=" block w-full bg-gray-800 border-gray-700 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-orange-500 focus:border-orange-500">
                             <option value="opcion1">Landing Page Profesional (1 sección)</option>
                             <option value="opcion2">Sitio Web Profesional (hasta 5 secciones)</option>
@@ -180,5 +191,11 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" defer></script>
     <script src="script.js" defer></script>
+
+    
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[100] hidden">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl font-light hover:text-orange-400 transition-colors">&times;</button>
+        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-[90%] md:max-h-4/5 object-contain">
+    </div>
 </body>
 </html>

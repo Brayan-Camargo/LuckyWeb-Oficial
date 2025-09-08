@@ -82,3 +82,28 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
+
+/* --- Estilos para el Lightbox --- */
+#lightbox {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+#lightbox.active {
+    opacity: 1;
+}
+.portfolio-image {
+    transition: transform 0.3s ease;
+}
+.portfolio-image:hover {
+    transform: scale(1.05);
+}
+
+/* --- Optimización de Animaciones para Móviles --- */
+@media (max-width: 768px) {
+    .reveal {
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .delay-150ms, .delay-200ms, .delay-250ms, .delay-300ms, .delay-350ms, .delay-400ms, .delay-500ms, .delay-600ms {
+        transition-delay: 0s;
+    }
+}
