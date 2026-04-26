@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     'use strict'; // Modo estricto para escribir código más seguro y evitar errores comunes.
 
     // --- 1. Funciones Auxiliares para una Mejor Legibilidad ---
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, { threshold: 0.1 }); // Se dispara cuando el 10% del elemento es visible.
-        
+
         revealElements.forEach(el => observer.observe(el));
     };
 
@@ -99,11 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
      * @description Maneja la lógica del formulario de contacto.
      */
     const setupContactForm = () => {
-        const contactForm = getEl('#contactForm');
+        const contactForm = getEl('#contact-form');
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                // e.preventDefault();
-                // Lógica para el envío real del formulario...
+            contactForm.addEventListener('submit', function (e) {
             });
         }
     };
@@ -115,7 +113,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const setupRotatingText = () => {
         const rotatingTextElement = getEl("#rotating_text");
         if (rotatingTextElement) {
-            const palabras = ["Increíbles", "Profesionales", "Modernas", "Únicas", "Digitales"];
+
+            const palabras = ["Escalables", "Robustas", "Eficientes", "A medida", "Innovadoras"];
+
             let palabrasIndex = 0;
             let letrasIndex = 0;
             let palabraRecurrente = "";
