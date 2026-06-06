@@ -1,16 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-    'use strict'; // Modo estricto para escribir código más seguro y evitar errores comunes.
+    'use strict';
 
-    // --- 1. Funciones Auxiliares para una Mejor Legibilidad ---
     const getEl = (selector) => document.querySelector(selector);
     const getAllEl = (selector) => document.querySelectorAll(selector);
 
-    // --- 2. Funcionalidades del Sitio Web ---
-
-    /**
-     * @function setupParticles
-     * @description Inicializa la librería particles.js para el fondo animado.
-     */
     const setupParticles = () => {
         if (getEl('#particles-js')) {
             particlesJS('particles-js', {
@@ -21,23 +14,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    /**
-     * @function setupCustomCursor
-     * @description Maneja la lógica del cursor personalizado para seguir el mouse y cambiar de tamaño.
-     */
     const setupCustomCursor = () => {
         const cursor = getEl('.custom-cursor');
-        // Seleccionamos todos los elementos interactivos para el efecto hover.
-        const hoverableElements = getAllEl('a, button, input, textarea, [data-tilt]');
+        const hoverableElements = getAllEl('a, button, input, textarea, select, [data-tilt]');
 
         if (cursor) {
             window.addEventListener('mousemove', e => {
-                // Actualiza la posición del cursor personalizado.
                 cursor.style.left = `${e.clientX}px`;
                 cursor.style.top = `${e.clientY}px`;
             });
 
-            // Añade y quita la clase 'hovered' al pasar sobre elementos interactivos.
             hoverableElements.forEach(el => {
                 el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
                 el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
@@ -45,10 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    /**
-     * @function setupScrollAnimations
-     * @description Utiliza Intersection Observer para animar elementos al entrar en el viewport.
-     */
     const setupScrollAnimations = () => {
         const revealElements = getAllEl('.reveal');
         const observer = new IntersectionObserver((entries) => {
@@ -57,15 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1 }); // Se dispara cuando el 10% del elemento es visible.
+        }, { threshold: 0.1 });
 
         revealElements.forEach(el => observer.observe(el));
     };
 
-    /**
-     * @function setupVanillaTilt
-     * @description Inicializa la librería Vanilla-tilt.js para el efecto 3D en las tarjetas.
-     */
     const setupVanillaTilt = () => {
         if (typeof VanillaTilt !== 'undefined') {
             VanillaTilt.init(getAllEl("[data-tilt]"), {
@@ -77,10 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    /**
-     * @function setupHeaderScroll
-     * @description Cambia el estilo del encabezado al hacer scroll.
-     */
     const setupHeaderScroll = () => {
         const header = getEl('#header');
         if (header) {
@@ -94,28 +68,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    /**
-     * @function setupContactForm
-     * @description Maneja la lógica del formulario de contacto.
-     */
-    const setupContactForm = () => {
-        const contactForm = getEl('#contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function (e) {
-            });
-        }
-    };
-
-    /**
-     * @function setupRotatingText
-     * @description Anima un texto rotativo para el eslogan del hero.
-     */
     const setupRotatingText = () => {
         const rotatingTextElement = getEl("#rotating_text");
         if (rotatingTextElement) {
-
-            const palabras = ["Escalables", "Robustas", "Eficientes", "A medida", "Innovadoras"];
-
+            const palabras = ["Escalable", "Para Empresas", "En la Nube", "Robusta", "A Medida"];
             let palabrasIndex = 0;
             let letrasIndex = 0;
             let palabraRecurrente = "";
@@ -147,25 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    /**
-     * @function setupBudgetForm
-     * @description Controla la visibilidad del botón y las opciones del formulario de presupuesto.
-     */
-    const setupBudgetForm = () => {
-        const generarBtn = getEl('#generar-presupuesto-btn');
-        const opcionesSection = getEl('#opciones-pdf');
-        if (generarBtn && opcionesSection) {
-            generarBtn.addEventListener('click', () => {
-                opcionesSection.style.display = 'block';
-                generarBtn.style.display = 'none';
-            });
-        }
-    };
-
-    /**
-     * @function setupLightbox
-     * @description Maneja la galería de imágenes con efecto lightbox.
-     */
     const setupLightbox = () => {
         const portfolioImages = getAllEl('.portfolio-image');
         const lightbox = getEl('#lightbox');
@@ -191,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             lightbox.addEventListener('click', (e) => {
-                // Cierra si se hace clic en el fondo o en la imagen
                 if (e.target.id === 'lightbox' || e.target.id === 'lightbox-image') {
                     lightboxClose.click();
                 }
@@ -199,10 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    /**
-     * @function setupMobileMenu
-     * @description Controla el menú desplegable en dispositivos móviles.
-     */
     const setupMobileMenu = () => {
         const mobileMenuButton = getEl('#mobile-menu-button');
         const mobileMenu = getEl('#mobile-menu');
@@ -212,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // Cierra el menú al hacer clic en un enlace.
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
@@ -221,16 +152,67 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // --- 3. Inicialización del Sitio ---
-    // Llamamos a todas las funciones para iniciar la lógica.
+    const setupCotizadorSaaS = () => {
+        const sucursalesInput = getEl('#sucursalesInput');
+        const sucursalesVal = getEl('#sucursalesVal');
+        const totalImplementacionEl = getEl('#totalImplementacion');
+        const totalMensualEl = getEl('#totalMensual');
+        const btnAgendar = getEl('#btnAgendarDemo');
+
+        if (!sucursalesInput) return;
+
+        const MENSUALIDAD_LIBRE_POR_SUCURSAL = 600;
+        const IMPL_BASE_LIBRE = 3500; 
+        const IMPL_EXTRA_LIBRE = 1000; 
+
+        const formatMoneda = (valor) => {
+            return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(valor);
+        };
+
+        const calcularCotizacion = () => {
+            const sucursales = parseInt(sucursalesInput.value);
+            
+            let subtotalMensual = sucursales * MENSUALIDAD_LIBRE_POR_SUCURSAL;
+            let subtotalImplementacion = 0;
+
+            if (sucursales <= 3) {
+                subtotalImplementacion = IMPL_BASE_LIBRE;
+            } else {
+                const sucursalesExtra = sucursales - 3;
+                subtotalImplementacion = IMPL_BASE_LIBRE + (sucursalesExtra * IMPL_EXTRA_LIBRE);
+            }
+
+            const totalImplementacionConIva = subtotalImplementacion * 1.16;
+            const totalMensualConIva = subtotalMensual * 1.16;
+
+            totalImplementacionEl.innerText = formatMoneda(totalImplementacionConIva);
+            totalMensualEl.innerText = formatMoneda(totalMensualConIva);
+        };
+
+        sucursalesInput.addEventListener('input', (e) => {
+            sucursalesVal.innerText = e.target.value;
+            calcularCotizacion();
+        });
+
+        if (btnAgendar) {
+            btnAgendar.addEventListener('click', () => {
+                const sucursales = sucursalesInput.value;
+                const mensaje = `Hola LuckyDev, me interesa agendar una demostración del Gestor de Horarios. Coticé el sistema para ${sucursales} sucursales y me gustaría ver cómo funciona.`;
+                window.open(`https://wa.me/+525533476238?text=${encodeURIComponent(mensaje)}`, '_blank');
+            });
+        }
+
+        calcularCotizacion();
+    };
+
+    // --- Inicialización del Sitio ---
     setupParticles();
     setupCustomCursor();
     setupScrollAnimations();
     setupVanillaTilt();
     setupHeaderScroll();
-    setupContactForm();
     setupRotatingText();
-    setupBudgetForm();
     setupLightbox();
     setupMobileMenu();
+    setupCotizadorSaaS();
 });
