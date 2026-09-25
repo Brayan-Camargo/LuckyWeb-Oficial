@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+		<link rel="shortcut icon" href="/assets/LuckyWebLogo.webp" />
+	</head>
+	<body class="antialiased bg-[#0a0a0a] text-gray-200">
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	body {
+		font-family: 'Inter', sans-serif;
+		overflow-x: hidden;
+		scroll-behavior: smooth;
+	}
+
+	.text-gradient {
+		background-image: linear-gradient(to right, #fb923c, #f43f5e); 
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.reveal {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+	}
+	
+	.reveal.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.header-scrolled {
+		background-color: rgba(10, 10, 10, 0.95);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border-bottom: 1px solid #1f2937;
+	}
+
+	.whatsapp_button {
+		position: fixed;
+		right: 30px;
+		bottom: 30px;
+		width: 55px;
+		height: 55px;
+		border-radius: 50%;
+		overflow: hidden;
+		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 999;
+		transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+	}
+
+	.whatsapp_button:hover {
+		transform: scale(1.05) translateY(-5px);
+		box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.7);
+	}
+
+	.delay-150ms { transition-delay: 150ms; }
+	.delay-200ms { transition-delay: 200ms; }
+	.delay-250ms { transition-delay: 250ms; }
+	.delay-300ms { transition-delay: 300ms; }
+	.delay-350ms { transition-delay: 350ms; }
+	.delay-400ms { transition-delay: 400ms; }
+
+	@media (max-width: 768px) {
+		.reveal {
+			transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+		}
+		.delay-150ms, .delay-200ms, .delay-250ms, .delay-300ms, .delay-350ms, .delay-400ms {
+			transition-delay: 0s;
+		}
+	}
+</style>

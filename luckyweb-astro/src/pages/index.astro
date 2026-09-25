@@ -1,0 +1,315 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+	title="LuckyDev | Ingeniería de Software" 
+	description="Automatizamos la operación de tu negocio. Especialistas en sistemas SaaS, cumplimiento normativo y desarrollo backend a medida para corporativos."
+>
+	<!-- NAVBAR -->
+	<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent">
+		<div class="container mx-auto px-6 py-5 flex justify-between items-center">
+			<div class="text-2xl font-black tracking-tighter text-white"><a href="#inicio">Lucky<span class="text-gradient">Dev</span></a></div>
+
+			<nav class="hidden md:flex space-x-10" id="desktop-menu">
+				<a href="#inicio" class="text-sm font-bold text-gray-300 hover:text-orange-400 transition-colors duration-300">Inicio</a>
+				<a href="#servicios" class="text-sm font-bold text-gray-300 hover:text-orange-400 transition-colors duration-300">Servicios</a>
+				<a href="#nosotros" class="text-sm font-bold text-gray-300 hover:text-orange-400 transition-colors duration-300">Nosotros</a>
+				<a href="#cotizador-saas" class="text-sm font-bold text-gray-300 hover:text-orange-400 transition-colors duration-300">Auditoría STPS</a>
+				<a href="#contacto" class="text-sm font-bold text-gray-300 hover:text-orange-400 transition-colors duration-300">Contacto</a>
+			</nav>
+
+			<button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-orange-400 focus:outline-none">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+				</svg>
+			</button>
+		</div>
+	</header>
+
+	<!-- HERO SECTION -->
+	<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
+		<!-- Destello naranja sutil de fondo para dar profundidad -->
+		<div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-2xl h-[400px] bg-orange-600/10 blur-[120px] pointer-events-none rounded-full"></div>
+		
+		<div class="hero-content text-center px-4 max-w-5xl mx-auto mt-16 relative z-10">
+			<h1 class="text-5xl md:text-7xl font-black text-white mb-6 reveal tracking-tighter leading-[1.2]">
+				Ingeniería de software <br>
+				<span class="text-gradient inline-block min-h-[1.2em]" id="rotating_text"></span>
+			</h1>
+			<p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 reveal delay-150ms font-medium leading-relaxed">
+				Auditoría técnica, arquitecturas seguras y sistemas corporativos en la nube diseñados para garantizar la continuidad de tu negocio.
+			</p>
+			
+			<!-- BOTÓN CON DEGRADADO NARANJA RECUPERADO -->
+			<a href="#contacto" class="inline-block bg-gradient-to-r from-orange-500 to-rose-600 text-white font-bold py-4 px-10 rounded-lg hover:from-orange-600 hover:to-rose-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-500/20 reveal delay-200ms uppercase tracking-widest text-sm">
+				Audita tu Operación
+			</a>
+		</div>
+	</section>
+
+	<!-- MARCAS EXCLUSIVAS (CAMARGOLD) -->
+	<section class="py-12 border-y border-gray-900 bg-[#0a0a0a] relative z-10">
+		<div class="container mx-auto px-6 text-center reveal">
+			<p class="text-[10px] text-gray-500 font-bold uppercase tracking-[0.3em] mb-8">Desarrollando tecnología para marcas exclusivas</p>
+			<div class="flex justify-center opacity-60 hover:opacity-100 transition-opacity duration-500">
+				<a href="https://camargold.com" target="_blank" rel="noopener noreferrer" class="text-gray-200 text-2xl md:text-3xl font-light tracking-[0.4em] hover:text-white transition-colors duration-300">
+					C A M A R G O L D
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- SERVICIOS -->
+	<section id="servicios" class="py-24 bg-[#101010] relative">
+		<div class="container mx-auto px-6 relative z-10">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-black text-white reveal tracking-tighter">Nuestros <span class="text-gradient">Servicios</span></h2>
+				<p class="text-gray-400 mt-6 reveal delay-150ms max-w-2xl mx-auto font-medium text-lg">Soluciones tecnológicas de grado empresarial diseñadas para resolver cuellos de botella y mitigar riesgos.</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="bg-[#0a0a0a] p-10 rounded-xl border border-gray-800 transition-all duration-300 reveal hover:border-gray-500 shadow-xl" data-tilt>
+					<h4 class="text-2xl font-black text-white mb-4 tracking-tight">Software a Medida</h4>
+					<p class="text-gray-400 font-medium leading-relaxed">Desarrollo de sistemas complejos, automatización de tareas y arquitectura backend de alto rendimiento utilizando Java y Spring Boot.</p>
+				</div>
+				
+				<div class="bg-[#0a0a0a] p-10 rounded-xl border border-orange-500/30 transition-all duration-300 reveal delay-150ms hover:border-orange-500/60 shadow-xl shadow-orange-500/5" data-tilt>
+					<div class="text-orange-500 mb-3 font-bold text-xs uppercase tracking-widest">SaaS Propio • Cadygh</div>
+					<h4 class="text-2xl font-black text-white mb-4 tracking-tight">Control de Asistencia STPS</h4>
+					<p class="text-gray-400 font-medium leading-relaxed">Protege a tu empresa contra multas por incumplimiento de horarios. Reportes 100% automatizados y auditables para el sector retail.</p>
+				</div>
+				
+				<div class="bg-[#0a0a0a] p-10 rounded-xl border border-gray-800 transition-all duration-300 reveal delay-300ms hover:border-gray-500 shadow-xl" data-tilt>
+					<h4 class="text-2xl font-black text-white mb-4 tracking-tight">Presencia B2B</h4>
+					<p class="text-gray-400 font-medium leading-relaxed">Plataformas web corporativas y landing pages de alta conversión optimizadas para posicionar tu marca y captar clientes de alto valor.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SECCIÓN NOSOTROS -->
+	<section id="nosotros" class="py-24 bg-[#0a0a0a]">
+		<div class="container mx-auto px-6">
+			<div class="flex flex-col lg:flex-row items-center gap-16">
+				<div class="lg:w-1/2 reveal">
+					<div class="relative">
+						<!-- Detalle naranja sutil en la imagen -->
+						<div class="absolute inset-0 border-2 border-orange-500/20 transform translate-x-4 translate-y-4 rounded-xl"></div>
+						<img src="/assets/figmaluckyweb.webp" alt="Arquitectura de Software Corporativa LuckyDev" class="relative rounded-xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 z-10 w-full object-cover">
+					</div>
+				</div>
+				<div class="lg:w-1/2">
+					<h2 class="text-4xl md:text-5xl font-black text-white mb-6 reveal tracking-tighter">Sobre <span class="text-gradient">LuckyDev</span></h2>
+					<p class="text-lg text-gray-300 mb-6 reveal delay-150ms font-medium leading-relaxed">No somos una agencia tradicional; somos auditores y arquitectos de tu operación. Entendemos que en el sector corporativo y retail, un fallo logístico o administrativo se traduce en pérdidas reales.</p>
+					<p class="text-lg text-gray-300 reveal delay-200ms font-medium leading-relaxed">Utilizamos infraestructura sólida y bases de datos robustas para entregar soluciones escalables que devuelven tiempo, garantizan el cumplimiento normativo y blindan la continuidad de tu negocio.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- COTIZADOR -->
+	<section id="cotizador-saas" class="py-24 bg-[#101010]">
+		<div class="container mx-auto px-6 max-w-4xl">
+			<div class="text-center mb-12">
+				<h2 class="text-4xl md:text-5xl font-black text-white reveal tracking-tighter">Evaluación de <span class="text-gradient">Cumplimiento</span></h2>
+				<p class="text-gray-400 mt-4 reveal delay-150ms font-medium">Calcula la inversión para proteger tus sucursales con nuestro sistema centralizado Cadygh.</p>
+			</div>
+
+			<div class="bg-[#0a0a0a] p-8 md:p-14 rounded-2xl border border-gray-800 shadow-2xl reveal delay-200ms">
+				
+				<div class="mb-10 p-5 bg-gray-900 border-l-4 border-orange-500 rounded-r-lg text-left">
+					<p class="text-white font-bold text-sm uppercase tracking-widest mb-2">Alerta Normativa</p>
+					<p class="text-gray-400 text-sm font-medium leading-relaxed">Las recientes reformas exigen un control auditable de horarios y desconexión digital. Nuestro SaaS automatiza la recolección de firmas y bitácoras para blindarte ante inspecciones y multas.</p>
+				</div>
+
+				<div class="mb-12 text-center max-w-2xl mx-auto">
+					<label for="sucursalesInput" class="block text-lg font-medium text-gray-300 mb-6">Número de Sucursales a Integrar: <span id="sucursalesVal" class="text-orange-500 font-black text-4xl ml-3">3</span></label>
+					<!-- ACENTO NARANJA RECUPERADO EN EL SLIDER -->
+					<input type="range" id="sucursalesInput" min="1" max="10" value="3" class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-orange-500">
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="bg-[#101010] p-8 rounded-xl border border-gray-800 text-center transition-all duration-300 shadow-inner">
+						<h4 class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-3">Setup Inicial (Pago Único)</h4>
+						<p id="totalImplementacion" class="text-4xl font-black text-white my-4">$0.00</p>
+						<p class="text-xs text-gray-500 font-medium leading-relaxed">Auditoría, despliegue en nube dedicada y capacitación corporativa.</p>
+					</div>
+
+					<div class="bg-[#101010] p-8 rounded-xl border border-orange-900/40 text-center transition-all duration-300 relative overflow-hidden shadow-inner">
+						<div class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-bl-lg">Licencia Activa</div>
+						<h4 class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-3">Póliza Mensual</h4>
+						<p id="totalMensual" class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-rose-500 my-4">$0.00</p>
+						<p class="text-xs text-gray-500 font-medium leading-relaxed">Soporte técnico directo, SLA garantizado y actualizaciones normativas.</p>
+					</div>
+				</div>
+
+				<p class="text-center text-[10px] text-gray-500 mt-6 uppercase tracking-widest">* Precios expresados en MXN. No incluyen IVA.</p>
+
+				<div class="text-center mt-10">
+					<!-- BOTÓN CON DEGRADADO NARANJA RECUPERADO -->
+					<button id="btnAgendarDemo" class="bg-gradient-to-r from-orange-500 to-rose-600 text-white font-bold py-4 px-12 rounded-lg hover:from-orange-600 hover:to-rose-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-500/20 text-sm uppercase tracking-widest">
+						Agendar Demostración
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CONTACTO -->
+	<section id="contacto" class="py-24 bg-[#0a0a0a]">
+		<div class="container mx-auto px-6 max-w-3xl">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-black text-white reveal tracking-tighter">Solicitar <span class="text-gradient">Consultoría</span></h2>
+				<p class="text-gray-400 mt-4 reveal delay-150ms font-medium">Déjanos tus datos. Nuestro equipo técnico evaluará la viabilidad de tu proyecto.</p>
+			</div>
+			
+			<form id="contact-form" action="https://formsubmit.co/contacto@luckydev.com.mx" method="POST" class="space-y-6">
+				<div class="reveal delay-150ms">
+					<label for="servicio" class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Área de Interés</label>
+					<select name="servicio" id="servicio" class="block w-full bg-[#101010] border border-gray-800 rounded-lg py-4 px-4 text-white font-medium focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors">
+						<option value="SaaS Cadygh">Demo SaaS Cadygh: Gestión de Horarios y Asistencia</option>
+						<option value="Software a la Medida">Desarrollo de Software a la Medida</option>
+						<option value="Landing Page">Diseño Web Corporativo / Landing Pages</option>
+						<option value="Ecommerce">Desarrollo de Tienda en Línea / E-commerce</option>
+						<option value="Otro">Consultoría Técnica / Otro Proyecto</option>
+					</select>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal delay-200ms">
+					<div>
+						<label for="name" class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Nombre Completo / Empresa</label>
+						<input type="text" name="name" id="name" required class="block w-full bg-[#101010] border border-gray-800 rounded-lg py-4 px-4 text-white font-medium focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors">
+					</div>
+					<div>
+						<label for="number" class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Teléfono Directo</label>
+						<input type="tel" name="number" id="number" placeholder="+52 ..." required class="block w-full bg-[#101010] border border-gray-800 rounded-lg py-4 px-4 text-white font-medium focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors">
+					</div>
+				</div>
+
+				<div class="reveal delay-200ms">
+					<label for="email" class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Correo Corporativo</label>
+					<input type="email" name="email" id="email" required class="block w-full bg-[#101010] border border-gray-800 rounded-lg py-4 px-4 text-white font-medium focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors">
+				</div>
+
+				<div class="reveal delay-250ms">
+					<label for="message" class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Contexto Operativo / Requerimientos</label>
+					<textarea id="message" name="message" rows="4" required class="block w-full bg-[#101010] border border-gray-800 rounded-lg py-4 px-4 text-white font-medium focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-colors resize-none" placeholder="Ej: Me interesa el SaaS Cadygh para 4 sucursales / Necesito un E-commerce para mi marca..."></textarea>
+				</div>
+				
+				<div class="text-center reveal delay-300ms pt-8">
+					<!-- BOTÓN CON DEGRADADO NARANJA RECUPERADO -->
+					<button type="submit" class="w-full md:w-auto bg-gradient-to-r from-orange-500 to-rose-600 text-white font-bold py-4 px-16 rounded-lg hover:from-orange-600 hover:to-rose-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-orange-500/20 text-sm uppercase tracking-widest">
+						Enviar Solicitud
+					</button>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<!-- FOOTER -->
+	<section class="py-16 bg-[#101010] border-t border-gray-900">
+		<div class="container mx-auto px-6 text-center">
+			<p class="text-xs text-gray-600 font-bold uppercase tracking-widest mb-8">Infraestructura Tecnológica de Grado Empresarial</p>
+			<div class="flex flex-wrap justify-center gap-12 opacity-40 hover:opacity-100 transition-opacity duration-500">
+				<span class="text-white font-medium text-xl tracking-wide">Java / Spring Boot</span>
+				<span class="text-white font-medium text-xl tracking-wide">Seguridad JWT</span>
+				<span class="text-white font-medium text-xl tracking-wide">MySQL Dedicado</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- WHATSAPP SVG (No se rompe) -->
+	<a href="https://wa.me/+525533476238" class="fixed right-8 bottom-8 w-14 h-14 bg-gradient-to-tr from-green-500 to-green-400 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:scale-110 hover:shadow-green-500/50 transition-all duration-300 z-[999]" target="_blank" rel="noopener noreferrer" aria-label="Contacto WhatsApp">
+		<svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+			<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.666.598 1.236.786 1.41.872.173.086.275.072.376-.043.101-.115.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.277-.927-3.541 0-3.808 3.097-6.904 6.903-6.904 3.803 0 6.901 3.097 6.902 6.904 0 3.807-3.096 6.904-6.903 6.904z"/>
+		</svg>
+	</a>
+</Layout>
+
+<script>
+	import VanillaTilt from 'vanilla-tilt';
+
+	document.addEventListener('DOMContentLoaded', () => {
+		
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		}, { threshold: 0.1 });
+		document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+		VanillaTilt.init(document.querySelectorAll("[data-tilt]") as any, {
+			max: 5,
+			speed: 400,
+			glare: true,
+			"max-glare": 0.15
+		});
+
+		const header = document.querySelector('#header');
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > 50) {
+				header?.classList.add('bg-[#0a0a0a]/95', 'backdrop-blur-md', 'border-gray-800');
+				header?.classList.remove('border-transparent');
+			} else {
+				header?.classList.remove('bg-[#0a0a0a]/95', 'backdrop-blur-md', 'border-gray-800');
+				header?.classList.add('border-transparent');
+			}
+		});
+
+		const rotatingTextElement = document.querySelector("#rotating_text");
+		if (rotatingTextElement) {
+			const palabras = ["Escalable", "Para Empresas", "Auditable", "A Medida"];
+			let pIdx = 0, lIdx = 0;
+			const type = () => {
+				if (pIdx === palabras.length) pIdx = 0;
+				let p = palabras[pIdx];
+				rotatingTextElement.textContent = p.slice(0, ++lIdx);
+				if (lIdx === p.length) setTimeout(erase, 1500);
+				else setTimeout(type, 80);
+			}
+			const erase = () => {
+				let p = palabras[pIdx];
+				rotatingTextElement.textContent = p.slice(0, --lIdx);
+				if (lIdx === 0) { 
+					rotatingTextElement.innerHTML = "&nbsp;"; 
+					pIdx++; 
+					setTimeout(type, 500); 
+				}
+				else setTimeout(erase, 30);
+			}
+			type();
+		}
+
+		const input = document.querySelector('#sucursalesInput') as HTMLInputElement;
+		const val = document.querySelector('#sucursalesVal');
+		const totalImpl = document.querySelector('#totalImplementacion');
+		const totalMen = document.querySelector('#totalMensual');
+		const btnAgendar = document.querySelector('#btnAgendarDemo');
+
+		const calcularCotizacion = () => {
+			if (!input) return;
+			const sucursales = parseInt(input.value);
+			let subMensual = sucursales * 600;
+			let subImpl = sucursales <= 3 ? 3500 : 3500 + ((sucursales - 3) * 1000);
+			const format = (v: number) => new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(v);
+			
+			if(totalImpl) totalImpl.textContent = format(subImpl);
+			if(totalMen) totalMen.textContent = format(subMensual);
+		};
+
+		input?.addEventListener('input', (e) => {
+			if(val) val.textContent = (e.target as HTMLInputElement).value;
+			calcularCotizacion();
+		});
+
+		btnAgendar?.addEventListener('click', () => {
+			const m = `Hola LuckyDev, me interesa agendar una consultoría para Cadygh. Coticé el sistema para ${input?.value} sucursales y busco blindar mi operación.`;
+			window.open(`https://wa.me/+525533476238?text=${encodeURIComponent(m)}`, '_blank');
+		});
+
+		calcularCotizacion();
+	});
+</script>
