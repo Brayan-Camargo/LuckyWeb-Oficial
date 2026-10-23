@@ -4,9 +4,42 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description: string;
+	image?: string;
+	noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+// ====== CONFIGURA ESTOS VALORES ======
+const GA_ID = 'G-FRL3XCH7V4';                 // ID de medición de Google Analytics (GA4)
+const GSC_VERIFICATION = 'TU_CODIGO_SEARCH_CONSOLE'; // Solo el valor "content" de la meta
+const SITE_URL = 'https://luckydev.com.mx';
+// =====================================
+
+const {
+	title,
+	description,
+	image = '/assets/og-image.jpg', // Recomendado: JPG/PNG de 1200x630
+	noindex = false
+} = Astro.props;
+
+// Solo carga Analytics en producción y si ya pusiste tu ID real
+const enableGA = import.meta.env.PROD && GA_ID !== 'G-FRL3XCH7V4';
+const enableGSC = GSC_VERIFICATION !== 'TU_CODIGO_SEARCH_CONSOLE';
+
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
+const imageURL = new URL(image, SITE_URL).href;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Organization',
+	name: 'LuckyDev',
+	url: SITE_URL,
+	logo: `${SITE_URL}/assets/LuckyWebLogo.webp`,
+	email: 'contacto@luckydev.com.mx',
+	telephone: '+525533476238',
+	description,
+	areaServed: 'MX',
+	knowsAbout: ['Desarrollo de software a medida', 'Diseño web', 'E-commerce', 'Java', 'Spring Boot']
+};
 ---
 
 <!doctype html>
@@ -14,18 +47,105 @@ const { title, description } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#0a0a0a" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		
+		<link rel="canonical" href={canonicalURL} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<!-- Search Console -->
+		{enableGSC && <meta name="google-site-verification" content={GSC_VERIFICATION} />}
+
+		<!-- Open Graph / Twitter -->
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
-		
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content={imageURL} />
+		<meta property="og:locale" content="es_MX" />
+		<meta property="og:site_name" content="LuckyDev" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageURL} />
+
+		<!-- Datos estructurados (ayuda a Google a entender el negocio) -->
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+		<!-- Fuentes -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
 		<link rel="shortcut icon" href="/assets/LuckyWebLogo.webp" />
+
+		<!-- Google Analytics 4: solo se carga si la persona acepta las cookies de análisis -->
+		<script is:inline define:vars={{ GA_ID, enableGA }}>
+			(function () {
+				var KEY = 'luckydev_cookies';
+				function getChoice() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+				function setChoice(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+
+				function loadGA() {
+					if (!enableGA || window.__gaLoaded) return;
+					window.__gaLoaded = true;
+					var s = document.createElement('script');
+					s.async = true;
+					s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+					document.head.appendChild(s);
+					window.dataLayer = window.dataLayer || [];
+					window.gtag = function () { window.dataLayer.push(arguments); };
+					window.gtag('js', new Date());
+					window.gtag('config', GA_ID);
+				}
+
+				function showBanner(show) {
+					var el = document.getElementById('cookie-banner');
+					if (el) el.classList.toggle('hidden', !show);
+				}
+
+				document.addEventListener('DOMContentLoaded', function () {
+					var choice = getChoice();
+					if (choice === 'accepted') loadGA();
+					if (!choice) showBanner(true);
+
+					var accept = document.getElementById('cookie-accept');
+					var reject = document.getElementById('cookie-reject');
+
+					if (accept) accept.addEventListener('click', function () {
+						setChoice('accepted');
+						showBanner(false);
+						loadGA();
+					});
+
+					if (reject) reject.addEventListener('click', function () {
+						var hadGA = window.__gaLoaded;
+						setChoice('rejected');
+						showBanner(false);
+						if (hadGA) window.location.reload(); // detiene Analytics en la sesión actual
+					});
+
+					// Enlaces "Preferencias de cookies" en cualquier parte del sitio
+					document.querySelectorAll('[data-cookie-settings]').forEach(function (btn) {
+						btn.addEventListener('click', function () { showBanner(true); });
+					});
+				});
+			})();
+		</script>
 	</head>
 	<body class="antialiased bg-[#0a0a0a] text-gray-200">
 		<slot />
+
+		<!-- BANNER DE COOKIES -->
+		<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" class="hidden fixed bottom-4 left-4 right-4 md:right-auto md:max-w-md z-[1000] bg-[#101010]/95 backdrop-blur-md border border-gray-800 rounded-xl p-5 shadow-2xl">
+			<p class="text-sm text-gray-300 font-medium leading-relaxed mb-4">
+				Usamos cookies de análisis (Google Analytics) para entender cómo se usa el sitio y mejorarlo. Tú decides si las aceptas. Más información en nuestro <a href="/aviso-de-privacidad#cookies" class="text-orange-400 hover:text-orange-300 underline underline-offset-4 transition-colors duration-300">Aviso de Privacidad</a>.
+			</p>
+			<div class="flex gap-3">
+				<button id="cookie-accept" type="button" class="flex-1 bg-gradient-to-r from-orange-500 to-rose-600 text-white font-bold py-2.5 px-4 rounded-lg hover:from-orange-600 hover:to-rose-700 transition-all duration-300 text-xs uppercase tracking-widest">Aceptar</button>
+				<button id="cookie-reject" type="button" class="flex-1 border border-gray-700 text-gray-300 font-bold py-2.5 px-4 rounded-lg hover:border-gray-500 hover:text-white transition-all duration-300 text-xs uppercase tracking-widest">Rechazar</button>
+			</div>
+		</div>
 	</body>
 </html>
 
@@ -96,5 +216,10 @@ const { title, description } = Astro.props;
 		.delay-150ms, .delay-200ms, .delay-250ms, .delay-300ms, .delay-350ms, .delay-400ms {
 			transition-delay: 0s;
 		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		body { scroll-behavior: auto; }
+		.reveal { transition: none; opacity: 1; transform: none; }
 	}
 </style>
