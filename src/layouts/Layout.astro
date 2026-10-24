@@ -9,7 +9,7 @@ interface Props {
 }
 
 // ====== CONFIGURA ESTOS VALORES ======
-const GA_ID = 'G-FRL3XCH7V4';                 // ID de medición de Google Analytics (GA4)
+const GA_ID = 'G-ZX26WTEB4P';                 // ID de medición de Google Analytics (GA4)
 const GSC_VERIFICATION = 'TU_CODIGO_SEARCH_CONSOLE'; // Solo el valor "content" de la meta
 const SITE_URL = 'https://luckydev.com.mx';
 // =====================================
@@ -22,7 +22,7 @@ const {
 } = Astro.props;
 
 // Solo carga Analytics en producción y si ya pusiste tu ID real
-const enableGA = import.meta.env.PROD && GA_ID !== 'G-FRL3XCH7V4';
+const enableGA = import.meta.env.PROD && GA_ID !== 'G-ZX26WTEB4P';
 const enableGSC = GSC_VERIFICATION !== 'TU_CODIGO_SEARCH_CONSOLE';
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
