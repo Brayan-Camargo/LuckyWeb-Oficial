@@ -8,21 +8,18 @@ interface Props {
 	noindex?: boolean;
 }
 
-// ====== CONFIGURA ESTOS VALORES ======
 const GA_ID = 'G-ZX26WTEB4P';                 // ID de medición de Google Analytics (GA4)
 const GSC_VERIFICATION = 'TU_CODIGO_SEARCH_CONSOLE'; // Solo el valor "content" de la meta
 const SITE_URL = 'https://luckydev.com.mx';
-// =====================================
 
 const {
 	title,
 	description,
-	image = '/assets/og-image.jpg', // Recomendado: JPG/PNG de 1200x630
+	image = '/assets/LuckyWebLogo.webp', 
 	noindex = false
 } = Astro.props;
 
-// Solo carga Analytics en producción y si ya pusiste tu ID real
-const enableGA = import.meta.env.PROD && GA_ID !== 'G-ZX26WTEB4P';
+const enableGA = import.meta.env.PROD;
 const enableGSC = GSC_VERIFICATION !== 'TU_CODIGO_SEARCH_CONSOLE';
 
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
@@ -77,7 +74,7 @@ const jsonLd = {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
-		<link rel="shortcut icon" href="/assets/LuckyWebLogo.webp" />
+		<link rel="icon" type="image/webp" href="/assets/LuckyWebLogo.webp?v=2"/>
 
 		<!-- Google Analytics 4: solo se carga si la persona acepta las cookies de análisis -->
 		<script is:inline define:vars={{ GA_ID, enableGA }}>

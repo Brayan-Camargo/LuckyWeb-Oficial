@@ -1,1 +1,48 @@
 @import "tailwindcss";
+
+.ld-mark {
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-decoration: none;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.ld-mark span {
+  background-image: linear-gradient(90deg, #fb923c, #f43f5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Línea inferior que se abre al pasar el cursor */
+.ld-mark::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background-image: linear-gradient(90deg, #fb923c, #f43f5e);
+  transition: width 0.4s ease;
+}
+
+.ld-mark:hover,
+.ld-mark:focus-visible {
+  filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.55));
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.ld-mark:hover::after,
+.ld-mark:focus-visible::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-mark,
+  .ld-mark::after { transition: none; }
+}
